@@ -42,14 +42,14 @@ fev1_outliers <- fev1 %>%
 # count how many times each id appears
 counts <- fev1 %>%
   group_by(id) %>%
-  summarise(n())
+  summarise(n())  %>%
 
 # hint: dplyr has a function to do this, or you can use data.table, aggregate, 
 # or even a loop if you really needed to
 
 # then count how many times each count appears
 # could pre-calculate and do a geom_col() but geom_bar() does a count for us
-ggplot(data = counts, aes(x = ...)) +  # hint: factor on x variable
+ggplot(data = counts, aes(x = factor())) +  # hint: factor on x variable
     geom_bar() + ...
 
 # 4b. each individual's change over time
