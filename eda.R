@@ -4,24 +4,25 @@ library(tidyverse)
 
 # 2. loading data
 
-...    <- read_csv("fev1.csv")
+fev1<- read_csv("/Users/ericawlfong/Documents/GitHub/eda_fev1/fev1.csv")
 
-...$id <- factor(...$id)
+fev1$id <- factor(fev1$id)
 
 # 3a. correlation
 
 # for tidyverse users...
-summarise(..., r = ...)
+summarise(fev1, cor = cor(fev1$age,fev1$FEV1))
 # but there are many ways to get this answer
 
 # Answer: <discuss linear model assumption>
 
 # 3b. make a scatter plot
 
-ggplot(data = ..., aes(x = ...,
-                       y = ...)) +
-    geom_point() +
-    xlab(...) + ...
+age_fev1_plot <- ggplot(data = fev1, aes(x = fev1$age,
+                                         y = fev1$FEV1)) +
+  geom_point() +
+  xlab("Age") + ylab("FEV1")
+print(age_fev1_plot)
 
 # Answer: <discuss linear model assumption>
 
